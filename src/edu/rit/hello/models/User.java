@@ -1,8 +1,5 @@
 package edu.rit.hello.models;
 
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-
 /**
  * Represents a user of the application
  * 

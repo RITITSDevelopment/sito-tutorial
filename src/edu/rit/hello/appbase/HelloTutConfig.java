@@ -15,11 +15,5 @@ public class HelloTutConfig {
 		logger.info("Registering HelloTutorial Bean");
 		return new HelloTutorial();
 	}
-	
-	//public HelloTutConfig() {
-	//	logger.info("----HelloTutApp Initialized----");
-	//}
-	
-
-	
+		
 }

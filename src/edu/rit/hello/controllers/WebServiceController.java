@@ -31,7 +31,6 @@ class WebServiceController {
 	 */
 	@RequestMapping(value="ajax", method=RequestMethod.GET)
 	public User ajax() {
-		System.out.println(appBase.greeting);
 		return new User("Clark", "Kent", "Reporter");
 	}
 	
