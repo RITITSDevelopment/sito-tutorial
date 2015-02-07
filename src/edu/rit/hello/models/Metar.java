@@ -1,6 +1,5 @@
 package edu.rit.hello.models;
 
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -37,7 +36,7 @@ public class Metar {
 
 	private Metar() {}
 
-	public static Metar getMetarData(String loc) {
+	public static Metar getMetarData(String loc, String use_proxy) {
 		URL url;
 		logger.info("Location: " + loc);
 		
@@ -50,9 +49,17 @@ public class Metar {
 			
 			logger.info("URL: " + url);
 			
-			//Proxy proxy = new Proxy(Proxy.Type.SOCKS, new InetSocketAddress("proxy.rit.edu", 1080));
-				
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			HttpURLConnection connection;
+			
+			if (use_proxy.equals("true")) {
+				logger.info("Proxy Needed");
+				Proxy proxy = new Proxy(Proxy.Type.SOCKS, new InetSocketAddress("proxy.rit.edu", 1080));
+				connection = (HttpURLConnection) url.openConnection(proxy);
+			} else {
+				logger.info("Proxy Not Needed");
+				connection = (HttpURLConnection) url.openConnection();
+			}
+			
 			
 			connection.setRequestMethod("POST");
 			connection.setRequestProperty("Content-Type", "application/xml");
@@ -67,9 +74,6 @@ public class Metar {
 				
 			DocumentBuilder parser = factory.newDocumentBuilder();
 			Document doc = parser.parse(connection.getInputStream());
-			
-			logger.info("Document: ");
-			logger.info(doc);
 			
 			NodeList nodes = doc.getElementsByTagName("METAR");
 			Element elem = null;

@@ -2,6 +2,7 @@ package edu.rit.hello.controllers;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,8 @@ import edu.rit.hello.models.User;
 @RestController
 @RequestMapping(value="services")
 class WebServiceController {
+	
+	protected Logger logger = Logger.getLogger(WebServiceController.class);
 	
 	@Autowired
 	public HelloTutorial appBase;
@@ -54,6 +57,7 @@ class WebServiceController {
 	
 	@RequestMapping(value="metar", method=RequestMethod.GET)
 	public Metar getMetar(@RequestParam(value="location") String location) {
-		return Metar.getMetarData(location);
+		logger.info(appBase.getConstant("use_proxy"));
+		return Metar.getMetarData(location, (String)appBase.getConstant("use_proxy"));
 	}
 }
