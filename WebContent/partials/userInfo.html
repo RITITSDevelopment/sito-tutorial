@@ -1,0 +1,15 @@
+<h1>Hello Struts - User Info</h1>
+<div ng-if="userInfoCtrl.displayType == 'All Values'">
+	<h3>First Name: {{userInfoCtrl.user.firstName}}</h3>
+	<h3>Last Name: {{userInfoCtrl.user.lastName}}</h3>
+	<h3>Occupation: {{userInfoCtrl.user.occupation}}</h3>
+</div>
+<div ng-if="userInfoCtrl.displayType == 'FirstName Only'">
+	<h3>First Name: {{userInfoCtrl.user.firstName}}</h3>
+</div>
+<div ng-if="userInfoCtrl.displayType == 'LastName Only'">
+	<h3>Last Name: {{userInfoCtrl.user.lastName}}</h3>
+</div>
+
+<hr/>
+<h2><a href="#/index">Back to Home</a></h2>

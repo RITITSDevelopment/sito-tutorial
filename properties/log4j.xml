@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+
+<!-- 
+	This is the new XML based configuration for the Log4J package;
+	this will need to be used if more advanced settings are needed 
+ -->
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+       <layout class="org.apache.log4j.PatternLayout"> 
+          <param name="ConversionPattern" value="%-5p[%d{yyyy-MM-dd HH:mm:ss.SSS}][%t] %C{1}.%M:%L -- %m%n"/> 
+       </layout> 
+    </appender>
+ 
+ 	<!-- By default, only log "INFO" and above messages -->
+	<root>
+    	<priority value="INFO"/> 
+      		<appender-ref ref="STDOUT" /> 
+   	</root> 
+   	
+<!-- Uncomment to log MyBatis queries -->
+<!-- 
+	<logger name="org.apache.ibatis"> 
+     	<level value="DEBUG"       /> 
+     	<appender-ref ref="db_log" /> 
+    </logger> 
+
+    <logger name="java.sql"> 
+     	<level value="DEBUG"       /> 
+     	<appender-ref ref="db_log" /> 
+    </logger> 
+
+    <logger name="java.sql.Statement"> 
+     	<level value="DEBUG"       /> 
+     	<appender-ref ref="db_log" /> 
+    </logger> 
+ -->
+ 
+    <!-- Specify the logging level for loggers from other libraries -->
+    <logger name="org.apache">
+    	<level value="WARN" />
+    </logger>
+   
+</log4j:configuration> 
+

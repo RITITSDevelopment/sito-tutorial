@@ -1,0 +1,17 @@
+# This is the traditional style of configuration for the Log4J package;
+# It configures the types of messages that are logged and the format they are logged in
+
+# Set root logger level to INFO and set its only "appender" to be A1
+log4j.rootLogger=INFO, A1
+ 
+# Show only WARN messages for apache packages
+log4j.logger.org.apache=WARN
+ 
+# A1 is set to be a ConsoleAppender
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+
+# A1 uses the following pattern to log messages
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%-5p[%d{yyyy-MM-dd HH:mm:ss.SSS}][%t] %C{1}.%M:%L -- %m%n
+ 
+

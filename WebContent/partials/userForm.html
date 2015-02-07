@@ -1,0 +1,9 @@
+<h1>Enter Your Information</h1>
+<form name="display-user-info" ng-init="userFormCtrl.displayValues = ['All Values', 'FirstName Only', 'LastName Only']">
+	<label>Display Type:</label><select ng-model="userFormCtrl.displayType" ng-options="value for value in userFormCtrl.displayValues" name="displayType" />
+	<br/>
+	<label>First Name:</label><input type="text" ng-model="userFormCtrl.firstName"/><br/>
+	<label>Last Name:</label><input type="text" ng-model="userFormCtrl.lastName"/><br/>
+	<label>Occupation:</label><input type="text" ng-model="userFormCtrl.occupation"/><br/>
+	<input type="submit" ng-click="userFormCtrl.displayUser()"/>
+</form>

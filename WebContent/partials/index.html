@@ -1,0 +1,21 @@
+<h1>Welcome To Struts</h1>
+<form name="hello">
+	<label>Enter Message Here: </label>
+	<input type="text" name="message" ng-model="indexCtrl.message"/><br/>
+	<label>Your message is here: {{indexCtrl.message}}</label><br/>
+	<input type="submit" ng-click="indexCtrl.sendMessage()"/>
+</form>
+<hr>
+<h2><a href="#/loadUserForm">ShowUser Form</a></h2>
+<hr>
+<h2><a href="#/displayList">Show List</a></h2>
+<hr>
+<button ng-click="indexCtrl.retrieveUser()">Send AJAX Request</button>
+<div id="ajaxDiv" ng-repeat="user in indexCtrl.ajaxUsers">
+	<h4>{{user.firstName}}</h4>
+	<h4>{{user.lastName}}</h4>
+	<h4>{{user.occupation}}</h4>
+</div>
+<hr>
+<h2><input type="text" ng-model="indexCtrl.location" autocomplete/>
+<button ng-click="indexCtrl.sendMetar()">Send Metar Request</button></h2>

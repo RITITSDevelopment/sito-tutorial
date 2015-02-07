@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="sitoSandbox">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Hello Struts - Home Page</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.js"></script>
+<link rel="stylesheet" type="text/css" href="css/animations.css"/>
+<script src="js/appController.js"></script>
+<script src="js/services.js"></script>
+<script src="js/airports.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/indexController.js"></script>
+<script src="js/helloController.js"></script>
+<script src="js/displayUserInfoController.js"></script>
+<script src="js/loadUserFormController.js"></script>
+<script src="js/displayListController.js"></script>
+<script src="js/metarController.js"></script>
+<script src="js/routing.js"></script>
+</head>
+<body>
+	<div ng-controller="AppController as appCtrl">
+		<div ng-view class="animate"></div>
+	</div>
+</body>
+</html>
