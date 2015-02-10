@@ -8,11 +8,13 @@ To run the application, run the commands:
     //Builds a .war file and places it into the build/lib folder
     ./gradlew war
 
+On Windows, use the .bat file and provide the same parameters
+
 Take this war and copy it into a tomcat7 webapps folder. You may want to rename the
 war file to something shorter.
 
 Vist the webpage.
-EX. localhost:8080/<appName>  if you are running locally
+EX. localhost:8080/(appName)  if you are running locally
 
 
 
