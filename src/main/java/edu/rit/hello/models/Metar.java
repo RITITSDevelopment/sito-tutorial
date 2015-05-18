@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -21,7 +22,7 @@ import org.w3c.dom.NodeList;
 public class Metar {
 	
 	protected static Logger logger = Logger.getLogger(Metar.class);
-		
+	
 	public String temp = "No Data";
 	public String windSpeed = "No Data";
 	public String windDir = "No Data";

@@ -14,9 +14,9 @@ import edu.rit.hello.models.Metar;
 import edu.rit.hello.models.User;
 
 /**
- * This action acts as a shell to allow the index.jsp page to appear.
+ * This Controller acts as a gateway to the applications objects
  * 
- * @author sito
+ * @author cteisd
  */
 @RestController
 @RequestMapping(value="services")
@@ -28,7 +28,7 @@ class WebServiceController {
 	public HelloTutorial appBase;
 	
 	/**
-	 * This function maps to the /ajax url. Returns a user object
+	 * This function maps to the /ajax url. Returns a user object in JSON form
 	 * 
 	 * @return new User
 	 */
