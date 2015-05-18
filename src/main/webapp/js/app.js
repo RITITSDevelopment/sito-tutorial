@@ -1,23 +1,23 @@
-var app = angular.module('sitoSandbox');
+var app = angular.module('sitoSandbox', ['ngRoute', 'ngAnimate']);
 		
 app.config(function ($routeProvider) {
 	$routeProvider.when('/index', {
-		templateUrl: 'partials/index.html',
+		templateUrl: 'js/index/index.html',
 		controller: 'IndexController as indexCtrl'
 	}).when('/hello', {
-		templateUrl: 'partials/hello.html',
+		templateUrl: 'js/hello/hello.html',
 		controller: 'HelloController as helloCtrl'
 	}).when('/displayUserInfo', {
-		templateUrl: 'partials/userInfo.html',
+		templateUrl: 'js/displayUserInfo/userInfo.html',
 		controller: 'DisplayUserInfoController as userInfoCtrl'
 	}).when('/loadUserForm', {
-		templateUrl: 'partials/userForm.html',
+		templateUrl: 'js/loadUserForm/userForm.html',
 		controller: 'LoadUserFormController as userFormCtrl'
 	}).when('/displayList', {
-		templateUrl: 'partials/showUsers.html',
+		templateUrl: 'js/displayList/showUsers.html',
 		controller: 'DisplayListController as displayListCtrl'
 	}).when('/metar', {
-		templateUrl: 'partials/metar.html',
+		templateUrl: 'js/metar/metar.html',
 		controller: 'MetarController as metarCtrl'
 	}).otherwise({ redirectTo: '/index' });
 });
