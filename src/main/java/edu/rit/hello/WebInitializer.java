@@ -7,13 +7,14 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 import edu.rit.hello.listeners.HelloTutorialListener;
-import edu.rit.hello.appbase.Main;
+import edu.rit.hello.appbase.HelloConfig;
 
 public class WebInitializer extends SpringBootServletInitializer {
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
-		return application.sources(Main.class);	    	
+		application.sources(HelloConfig.class);	
+		return application;    	
 	}
 	
 	@Override

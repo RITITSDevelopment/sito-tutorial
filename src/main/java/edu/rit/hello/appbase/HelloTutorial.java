@@ -1,8 +1,7 @@
 package edu.rit.hello.appbase;
 
 import org.apache.log4j.Logger;
-
-import edu.rit.webapps.api.ApplicationBase;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * EwaSample
@@ -15,10 +14,12 @@ import edu.rit.webapps.api.ApplicationBase;
  * @author arfisd
  */
 
-public class HelloTutorial extends ApplicationBase {
+public class HelloTutorial {
 	
 	protected static Logger logger = Logger.getLogger( HelloTutorial.class );
 
+	@Value("BASE_URL") String base;
+	
 	/**
 	 * Creates an instance of HelloStruts
 	 */
@@ -30,15 +31,6 @@ public class HelloTutorial extends ApplicationBase {
 	 * @return BASE_URL
 	 */
 	public String getBaseURL() {
-		return (String) this.getConstant( "BASE_URL" );
-	}
-
-	/**
-	 * Gets the URL at which icons are hosted
-	 * 
-	 * @return BASE_ICON_URL
-	 */
-	public String getBaseIconURL() {
-		return (String) this.getConstant( "BASE_ICON_URL" );
+		return base;
 	}
 }

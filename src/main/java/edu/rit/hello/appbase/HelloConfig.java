@@ -7,8 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class HelloTutConfig {
-	protected static Logger logger = Logger.getLogger(HelloTutConfig.class);
+public class HelloConfig {
+	protected static Logger logger = Logger.getLogger(HelloConfig.class);
 	
 	@Bean
 	public HelloTutorial appInstance() {

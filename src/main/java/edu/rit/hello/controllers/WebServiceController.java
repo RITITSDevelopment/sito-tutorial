@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,8 +25,9 @@ class WebServiceController {
 	
 	protected Logger logger = Logger.getLogger(WebServiceController.class);
 	
-	@Autowired
-	public HelloTutorial appBase;
+	@Autowired public HelloTutorial appBase;
+	
+	@Value("use_proxy") String use_proxy;
 	
 	/**
 	 * This function maps to the /ajax url. Returns a user object in JSON form
@@ -57,7 +59,7 @@ class WebServiceController {
 	
 	@RequestMapping(value="metar", method=RequestMethod.GET)
 	public Metar getMetar(@RequestParam(value="location") String location) {
-		logger.info(appBase.getConstant("use_proxy"));
-		return Metar.getMetarData(location, (String)appBase.getConstant("use_proxy"));
+		logger.info(use_proxy);
+		return Metar.getMetarData(location, use_proxy);
 	}
 }

@@ -1,13 +1,6 @@
 package edu.rit.hello.listeners;
 
-import java.util.Hashtable;
-
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import edu.rit.hello.appbase.HelloTutorial;
 
 /**
  * An extension of the startup listener to load HelloTutorial specific
@@ -23,18 +16,12 @@ public class HelloTutorialListener extends StartupListener{
 	 */
 	public void startup() {
 		logger.info("Starting HelloTutorial Listener");
-		WebApplicationContext springContext = WebApplicationContextUtils.getWebApplicationContext(super.context);
-		HelloTutorial appInstance = springContext.getBean(HelloTutorial.class);
-
-		appInstance.setConstantsFile("sitoSandbox.properties");
-		appInstance.loadConstants();
-		
-		@SuppressWarnings("unchecked")
-		Hashtable<String, String> constantsTable = appInstance.getConstantsTable();
-
-		logger.info("Showing Constants");
-		showConstants(constantsTable);
-		logger.info("Done Showing Constants");
+		/* This will grab a bean from the applicaton context
+		 * This is not the recommended way, but is the only known way
+		 * Of Accessing beans in the start up listener
+		 */
+		//WebApplicationContext springContext = WebApplicationContextUtils.getWebApplicationContext(super.context);
+		//HelloTutorial appInstance = springContext.getBean(HelloTutorial.class);
 	}
 
 	/**

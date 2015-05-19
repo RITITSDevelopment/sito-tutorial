@@ -31,7 +31,6 @@ public abstract class StartupListener implements ServletContextListener {
 	protected static Logger logger = Logger.getLogger("StartupListener");
 
 	protected String basePath = null;
-	protected String log4jPath = null;
 
 	protected ServletContext context = null;
 
@@ -66,19 +65,12 @@ public abstract class StartupListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent event) {
 		this.context = event.getServletContext();
 		basePath = context.getRealPath("/WEB-INF/classes/");
-		log4jPath = context.getRealPath("/WEB-INF/classes/log4j");
-		
-		// If path to log file is available, configure Log4J properties
-		if (log4jPath != null) {
-			PropertyConfigurator.configure(log4jPath);
-		}
 
 		StringBuilder contextInitDetails = new StringBuilder();
 		contextInitDetails.append("context initialized >> ");
 		contextInitDetails.append("ServerInfo[" + context.getServerInfo() + "] ");
 		contextInitDetails.append("ContextName[" + context.getServletContextName() + "] ");
 		contextInitDetails.append("basePath[" + basePath + "] ");
-		contextInitDetails.append("log4jPath[" + log4jPath + "] ");
 		
 		logger.info(contextInitDetails.toString());
 
@@ -100,33 +92,6 @@ public abstract class StartupListener implements ServletContextListener {
 	 */
 	public String getBasePath() {
 		return basePath;
-	}
-	
-	/**
-	 * Outputs the names and values of the various constants provided
-	 * to the application logs
-	 *
-	 * @param constantsTable	table containing name and values of constants
-	 */
-	protected void showConstants(Hashtable<String,String> constantsTable) {
-		
-		logger.info("Starting Show Constants");
-		String key = null;
-		String value = null;
-
-		Enumeration<String> constantsList = constantsTable.keys();
-		while (constantsList.hasMoreElements()) {
-			key = (String) constantsList.nextElement();
-			value = (String) constantsTable.get( key );
-
-			if ((key.toUpperCase().indexOf( "PASSWORD" ) > 0) || (key.toUpperCase().indexOf( "ENCRYPT" ) > 0) ||
-					(key.toUpperCase().indexOf( "KEY" ) > 0) || (key.toUpperCase().indexOf( "HASH" ) > 0)) {
-				logger.info( key + "[" + value.length() + "]" );
-			} else {
-				logger.info( key + "[" + value + "]" );
-			}
-
-		}
 	}
 	
 	/**

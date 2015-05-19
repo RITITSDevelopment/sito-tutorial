@@ -1,0 +1,39 @@
+#################################################################
+#
+# ewaSample properties                                         
+#
+# Use this file to define any constants that may vary between environments;
+# For example, URLs for testing may be different than those used in the live "production" system
+#
+#################################################################
+# WATCH OUT FOR SPACES AT THE END OF VALUES -- IT MAKES A DIFFERENCE!
+
+# The mode determines which set of properties are used; application servers can be configured to override the mode set here
+
+spring:
+  application:
+    # Set the name of the application
+    name: Tiger Center Home
+  main:
+    # Remove Banner from displaying on startup
+    show-banner: false
+
+  # Set Thymeleaf html parsing mode to LEGACYHTML5
+  # This disables all of the strict HTML5 rendering and error catching. Turning this off breaks
+  # AngularJS 
+  thymeleaf:
+    mode: LEGACYHTML5
+
+app:
+  data:
+    source: java:/CORE_DATA_SOURCE
+
+BASE_URL: http://localhost:8080/sitoSandbox/
+use_proxy: false
+
+---
+spring:
+  profiles: dev
+
+BASE_URL: https://sitosandboxdev.rit.edu/sitoSandbox/
+use_proxy: true 
