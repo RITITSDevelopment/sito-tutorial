@@ -16,20 +16,15 @@ apply plugin: 'eclipse'
 apply plugin: 'war'
 apply plugin: 'spring-boot'
 
-sourceSets {
-    main {
-        java {
-            srcDir 'src'
-        }
-    }
-}
-
 war {
     baseName = 'helloTutorial'
-    version = '0.1.0'
-    from 'WebContent'            //adds a fileset to the root 
-    webInf { from 'properties' into 'classes' }     //adds a file-set to the WEB-INF dir
-    classpath file('lib/webApps-v151.jar')     //adds a file-set to the WEB-INF/lib dir 
+    
+    //Exclude all files that follow any of the patterns
+	rootSpec.exclude { details -> details.file.name.contains('test') || 
+								details.file.name.contains('grunt') || 
+								details.file.name.contains('Grunt') ||
+								details.file.name.contains('package.json') ||
+								details.file.name.endsWith('.sh') }
 }
 
 configurations {
@@ -47,8 +42,8 @@ repositories {
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version:'1.1.5.RELEASE'
 
-    compile files('lib/webApps-v151.jar')
-
+    compile files('src/main/resources/lib/webApps-v151.jar')
+    				
     compile 'asm:asm-all:3.3.1'
     compile 'freemarker:freemarker:2.3.9'
     compile 'javassist:javassist:3.12.1.GA'
